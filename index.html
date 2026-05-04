@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Globle Booster – Social Media Growth Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===================== GLOBLE BOOSTER STYLES ===================== */
+:root {
+  --bg: #09090f;
+  --bg2: #0f0f1a;
+  --bg3: #14142a;
+  --surface: #1a1a2e;
+  --surface2: #1e1e35;
+  --border: rgba(255,255,255,0.08);
+  --text: #f0f0ff;
+  --text-muted: rgba(240,240,255,0.55);
+  --accent: #7c3aed;
+  --accent2: #a855f7;
+  --accent3: #ec4899;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --red: #ef4444;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+  --glow: 0 0 40px rgba(124,58,237,0.3);
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  background: rgba(9,9,15,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 32px;
+  height: 64px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; user-select: none;
+  font-family: var(--font-head); font-size: 20px; font-weight: 800;
+}
+.logo-mark {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.logo-accent { color: var(--accent2); }
+.nav-links { display: flex; gap: 28px; margin: 0 auto; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-muted);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.lang-sel { font-size: 13px; color: var(--text-muted); cursor: pointer; }
+.hamburger { display: none; background: none; border: none; color: var(--text); font-size: 22px; cursor: pointer; }
+.mobile-menu {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 16px 0; border-top: 1px solid var(--border);
+}
+.mobile-menu a { font-size: 15px; color: var(--text-muted); padding: 6px 0; }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  color: #fff; border: none; border-radius: var(--radius-sm);
+  padding: 10px 22px; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: opacity .2s, transform .15s;
+  font-family: var(--font-body);
+}
+.btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius-sm);
+  padding: 10px 22px; font-size: 14px; font-weight: 500;
+  cursor: pointer; transition: border-color .2s;
+  font-family: var(--font-body);
+}
+.btn-outline:hover { border-color: var(--accent2); }
+.btn-primary.full, .btn-outline.full { width: 100%; text-align: center; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh; padding: 100px 24px 80px;
+  display: flex; align-items: center; gap: 60px;
+  max-width: 1200px; margin: 0 auto;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: 0.15;
+}
+.orb1 { width: 600px; height: 600px; background: var(--accent); top: -200px; left: -200px; }
+.orb2 { width: 400px; height: 400px; background: var(--accent3); top: 200px; right: -100px; }
+.orb3 { width: 300px; height: 300px; background: #3b82f6; bottom: 0; left: 40%; }
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+.hero-content { flex: 1; min-width: 0; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(124,58,237,0.15);
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 100px; padding: 6px 16px;
+  font-size: 13px; font-weight: 500; margin-bottom: 24px;
+  color: var(--accent2);
+}
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 800; line-height: 1.05;
+  margin-bottom: 24px;
+}
+.hero-gradient {
+  background: linear-gradient(135deg, var(--accent2), var(--accent3));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-outline {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.3);
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub { color: var(--text-muted); font-size: 17px; max-width: 500px; margin-bottom: 36px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  color: #fff; border: none; border-radius: 12px;
+  padding: 14px 28px; font-size: 16px; font-weight: 700;
+  cursor: pointer; transition: all .2s;
+  box-shadow: 0 8px 30px rgba(124,58,237,0.4);
+  font-family: var(--font-body);
+}
+.btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.5); }
+.btn-hero-secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text); border-radius: 12px;
+  padding: 14px 28px; font-size: 16px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+  font-family: var(--font-body);
+}
+.btn-hero-secondary:hover { background: rgba(255,255,255,0.1); }
+.hero-stats { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-family: var(--font-head); font-size: 22px; font-weight: 800; }
+.stat-label { font-size: 12px; color: var(--text-muted); }
+.stat-div { width: 1px; height: 36px; background: var(--border); }
+
+/* Hero Visual */
+.hero-visual { flex: 0 0 440px; position: relative; height: 440px; display: flex; align-items: center; justify-content: center; }
+.float-card {
+  position: absolute;
+  background: rgba(30,30,53,0.9);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  animation: float 4s ease-in-out infinite;
+  min-width: 180px;
+}
+.card1 { top: 20px; left: 0; animation-delay: 0s; }
+.card2 { top: 50%; right: 0; transform: translateY(-50%); animation-delay: 1.5s; }
+.card3 { bottom: 20px; left: 30px; animation-delay: 3s; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.card2 { animation: float2 4s ease-in-out infinite 1.5s; }
+@keyframes float2 {
+  0%,100% { transform: translateY(-50%); }
+  50% { transform: translateY(calc(-50% - 10px)); }
+}
+.fc-icon { font-size: 28px; }
+.fc-title { font-size: 11px; color: var(--text-muted); }
+.fc-val { font-family: var(--font-head); font-size: 18px; font-weight: 700; color: var(--green); }
+
+.platform-ring {
+  width: 240px; height: 240px;
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 50%;
+  position: relative;
+}
+.platform-ring::before {
+  content: ''; position: absolute; inset: 20px;
+  border: 1px dashed rgba(124,58,237,0.15);
+  border-radius: 50%;
+}
+.pr-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 0 30px rgba(124,58,237,0.5);
+}
+.pr-item {
+  position: absolute;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.pr-tiktok { background: #000; top: -22px; left: 50%; transform: translateX(-50%); }
+.pr-ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); top: 30px; right: -22px; color:#fff; }
+.pr-fb { background: #1877f2; bottom: 30px; right: -22px; color:#fff; }
+.pr-yt { background: #ff0000; bottom: -22px; left: 50%; transform: translateX(-50%); color:#fff; }
+.pr-tg { background: #2aabee; bottom: 30px; left: -22px; color:#fff; }
+.pr-wa { background: #25d366; top: 30px; left: -22px; color:#fff; }
+
+/* ===== SECTIONS ===== */
+.services-section, .how-section, .testimonials-section, .faq-section, .contact-section {
+  padding: 100px 24px;
+  max-width: 1200px; margin: 0 auto;
+}
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-tag {
+  display: inline-block;
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent2);
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+  margin-bottom: 12px;
+}
+.section-header p { color: var(--text-muted); font-size: 16px; }
+
+/* ===== PLATFORM TABS ===== */
+.platform-tabs {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 40px;
+}
+.ptab {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-muted); border-radius: 100px;
+  padding: 10px 22px; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+  font-family: var(--font-body);
+}
+.ptab:hover { border-color: var(--accent2); color: var(--text); }
+.ptab.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  border-color: transparent; color: #fff;
+}
+.ptab-icon { font-size: 16px; }
+
+/* ===== ORDER FORM ===== */
+.order-form-container {
+  max-width: 720px; margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px; padding: 36px;
+  box-shadow: var(--shadow);
+}
+.form-platform-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.form-plat-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+}
+.form-plat-title { font-family: var(--font-head); font-size: 22px; font-weight: 700; }
+.form-plat-sub { font-size: 13px; color: var(--text-muted); }
+
+.form-group { margin-bottom: 22px; }
+.form-label {
+  display: block; font-size: 13px; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.form-select, .form-input {
+  width: 100%;
+  background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius-sm);
+  padding: 12px 16px; font-size: 15px;
+  font-family: var(--font-body);
+  transition: border-color .2s;
+  appearance: none;
+}
+.form-select:focus, .form-input:focus {
+  outline: none; border-color: var(--accent2);
+}
+.select-wrapper { position: relative; }
+.select-wrapper::after {
+  content: '▼'; position: absolute; right: 14px; top: 50%;
+  transform: translateY(-50%); font-size: 11px; color: var(--text-muted);
+  pointer-events: none;
+}
+
+.quality-options { display: flex; gap: 10px; }
+.quality-opt {
+  flex: 1;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 12px;
+  cursor: pointer; transition: all .2s;
+  text-align: center;
+}
+.quality-opt.active { border-color: var(--accent2); background: rgba(124,58,237,0.1); }
+.quality-opt-name { font-size: 13px; font-weight: 600; }
+.quality-opt-price { font-size: 12px; color: var(--accent2); margin-top: 2px; }
+
+.qty-row { display: flex; align-items: center; gap: 14px; }
+.qty-input {
+  flex: 0 0 120px;
+  background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius-sm);
+  padding: 12px 16px; font-size: 15px;
+  font-family: var(--font-body); text-align: center;
+}
+.qty-input:focus { outline: none; border-color: var(--accent2); }
+.qty-slider { flex: 1; accent-color: var(--accent); }
+.qty-limits { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+.price-display {
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(236,72,153,0.1));
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: var(--radius);
+  padding: 20px 24px; margin: 24px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.price-total { font-family: var(--font-head); font-size: 32px; font-weight: 800; }
+.price-total span { color: var(--accent2); }
+.price-details { text-align: right; }
+.price-per { font-size: 12px; color: var(--text-muted); }
+.price-delivery { font-size: 13px; color: var(--green); font-weight: 600; }
+
+.form-warning {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: var(--radius-sm); padding: 12px 16px;
+  font-size: 13px; color: var(--gold); margin-bottom: 20px;
+}
+
+.btn-order {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  border: none; border-radius: var(--radius);
+  color: #fff; font-size: 16px; font-weight: 700;
+  cursor: pointer; transition: all .2s;
+  font-family: var(--font-body);
+  box-shadow: 0 8px 30px rgba(124,58,237,0.3);
+}
+.btn-order:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.5); }
+
+/* ===== HOW IT WORKS ===== */
+.steps-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+.step {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 24px;
+  text-align: center; transition: transform .2s;
+}
+.step:hover { transform: translateY(-4px); }
+.step-num {
+  font-family: var(--font-head); font-size: 12px; font-weight: 800;
+  letter-spacing: 2px; color: var(--accent2); margin-bottom: 16px;
+}
+.step-icon { font-size: 36px; margin-bottom: 16px; }
+.step h3 { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.step p { font-size: 14px; color: var(--text-muted); }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.tcard {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+  transition: transform .2s;
+}
+.tcard:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.3); }
+.tcard-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.tcard-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px; color: #fff; flex-shrink: 0;
+}
+.tcard-name { font-weight: 600; font-size: 15px; }
+.tcard-loc { font-size: 12px; color: var(--text-muted); }
+.tcard-stars { color: var(--gold); font-size: 14px; margin-left: auto; }
+.tcard p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+.tcard-service {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  background: rgba(124,58,237,0.15); color: var(--accent2);
+  border-radius: 100px; padding: 4px 12px;
+}
+
+/* ===== FAQ ===== */
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 0; cursor: pointer; font-weight: 600;
+  user-select: none; transition: color .2s;
+}
+.faq-q:hover { color: var(--accent2); }
+.faq-arrow { transition: transform .2s; font-size: 12px; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-a {
+  font-size: 14px; color: var(--text-muted); line-height: 1.7;
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease, padding .3s;
+}
+.faq-item.open .faq-a { max-height: 200px; padding-bottom: 18px; }
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.contact-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 24px; text-align: center;
+  transition: transform .2s;
+}
+.contact-card:hover { transform: translateY(-4px); }
+.contact-icon { font-size: 40px; margin-bottom: 16px; }
+.contact-card h3 { font-family: var(--font-head); font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.contact-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+.contact-btn {
+  display: inline-block; background: var(--bg2);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); padding: 10px 20px; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+  font-family: var(--font-body);
+}
+.contact-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+.wa-btn { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.3); color: #25d366; }
+.wa-btn:hover { background: rgba(37,211,102,0.2); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 60px 24px 30px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 40px;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-head); font-size: 20px; font-weight: 800;
+  margin-bottom: 16px;
+}
+.footer-brand p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+.footer-social { display: flex; gap: 12px; flex-wrap: wrap; }
+.footer-social a {
+  font-size: 13px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 6px 14px; transition: border-color .2s;
+}
+.footer-social a:hover { border-color: var(--accent2); }
+.footer-links h4 {
+  font-family: var(--font-head); font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
+  color: var(--accent2);
+}
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 14px; color: var(--text-muted); transition: color .2s; cursor: pointer; }
+.footer-links a:hover { color: var(--text); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  border-top: 1px solid var(--border);
+  padding-top: 24px; display: flex;
+  justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ===== MODALS ===== */
+.modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal.hidden { display: none; }
+.modal-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);
+}
+.modal-box {
+  position: relative; z-index: 1;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 24px; padding: 36px;
+  width: 100%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: var(--shadow);
+  animation: slideUp .3s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.dash-box { max-width: 680px; }
+.legal-box { max-width: 640px; }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text); width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-box h2 { font-family: var(--font-head); font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+.modal-box p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+.modal-box input[type="email"],
+.modal-box input[type="password"],
+.modal-box input[type="text"],
+.modal-box input[type="tel"],
+.modal-box input[type="number"] {
+  width: 100%; background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius-sm);
+  padding: 12px 16px; font-size: 15px; margin-bottom: 14px;
+  font-family: var(--font-body); transition: border-color .2s;
+}
+.modal-box input:focus { outline: none; border-color: var(--accent2); }
+.auth-switch { text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 16px; }
+.auth-switch a { color: var(--accent2); cursor: pointer; font-weight: 600; }
+
+/* Dashboard */
+.dash-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+}
+.dash-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+.dash-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 16px;
+}
+.dc-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.dc-val { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--accent2); }
+
+.dash-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.dtab {
+  background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text-muted); border-radius: var(--radius-sm);
+  padding: 8px 16px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-body);
+}
+.dtab.active { background: rgba(124,58,237,0.2); border-color: var(--accent2); color: var(--text); }
+
+.order-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.order-table th {
+  text-align: left; padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted); font-weight: 600; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.order-table td { padding: 12px; border-bottom: 1px solid var(--border); }
+.status-badge {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  border-radius: 100px; padding: 3px 10px;
+}
+.status-pending { background: rgba(245,158,11,0.15); color: var(--gold); }
+.status-active { background: rgba(16,185,129,0.15); color: var(--green); }
+.status-completed { background: rgba(124,58,237,0.15); color: var(--accent2); }
+
+/* Referral */
+.ref-program { }
+.ref-stats { display: flex; gap: 20px; margin: 20px 0; }
+.ref-stat { text-align: center; }
+.ref-stat span { display: block; font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--accent2); }
+.ref-stat small { font-size: 12px; color: var(--text-muted); }
+.ref-link-box { display: flex; gap: 10px; margin: 16px 0; }
+.ref-link-box input { flex: 1; background: var(--bg2); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13px; margin-bottom: 0; }
+.ref-link-box button { background: var(--accent); border: none; color: #fff; border-radius: var(--radius-sm); padding: 10px 18px; font-weight: 600; cursor: pointer; font-family: var(--font-body); }
+.ref-note { font-size: 13px; color: var(--text-muted); }
+
+/* Claim */
+.claim-box { }
+.claim-input-row { display: flex; gap: 10px; margin: 16px 0; }
+.claim-input-row input { flex: 1; margin-bottom: 0; }
+.claim-input-row button { background: var(--accent); border: none; color: #fff; border-radius: var(--radius-sm); padding: 10px 18px; font-weight: 600; cursor: pointer; font-family: var(--font-body); }
+#claimMsg { font-size: 14px; margin-top: 10px; }
+
+/* Add Funds */
+.funds-amounts { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.funds-amounts button {
+  flex: 1; min-width: 80px; background: var(--bg2);
+  border: 1px solid var(--border); color: var(--text);
+  border-radius: var(--radius-sm); padding: 10px;
+  font-weight: 600; cursor: pointer; transition: all .2s;
+  font-family: var(--font-body);
+}
+.funds-amounts button.selected, .funds-amounts button:hover {
+  border-color: var(--accent2); color: var(--accent2);
+  background: rgba(124,58,237,0.1);
+}
+.funds-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+
+/* ===== ADMIN PANEL ===== */
+.admin-panel {
+  position: fixed; inset: 0; z-index: 2000;
+}
+.admin-panel.hidden { display: none; }
+.admin-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+}
+.admin-drawer {
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: min(90vw, 620px);
+  background: var(--bg2); border-left: 1px solid var(--border);
+  overflow-y: auto; z-index: 1;
+  animation: slideInRight .3s ease;
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.admin-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px; border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(236,72,153,0.1));
+}
+.admin-header h2 { font-family: var(--font-head); font-size: 20px; font-weight: 800; }
+.admin-close {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; font-size: 14px;
+}
+.admin-login, .admin-content { padding: 24px; }
+.admin-login p { color: var(--text-muted); margin-bottom: 14px; }
+.admin-login input {
+  width: 100%; background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius-sm);
+  padding: 12px 16px; font-size: 15px; margin-bottom: 12px;
+  font-family: var(--font-body);
+}
+.admin-login button, .admin-content button {
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  border: none; color: #fff; border-radius: var(--radius-sm);
+  padding: 10px 22px; font-weight: 600; cursor: pointer;
+  font-family: var(--font-body);
+}
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.atab {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-muted); border-radius: var(--radius-sm);
+  padding: 8px 16px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-body);
+}
+.atab.active { background: rgba(124,58,237,0.2); border-color: var(--accent2); color: var(--text); }
+.atab-content h3 { font-family: var(--font-head); font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.atab-content input {
+  width: 100%; background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); border-radius: var(--radius-sm);
+  padding: 10px 14px; font-size: 14px; margin-bottom: 10px;
+  font-family: var(--font-body);
+}
+.admin-order-item, .admin-fund-item, .admin-user-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px; margin-bottom: 10px;
+  font-size: 13px;
+}
+.admin-gen-link { margin-top: 24px; border-top: 1px solid var(--border); padding-top: 20px; }
+.admin-gen-link h4 { font-weight: 700; margin-bottom: 12px; }
+#generatedLink, #generatedCode {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 12px; margin-top: 10px;
+  font-size: 13px; word-break: break-all; color: var(--accent2);
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 20px;
+  font-size: 14px; font-weight: 500;
+  box-shadow: var(--shadow);
+  animation: slideUp .3s ease;
+  max-width: 320px;
+}
+.toast.hidden { display: none; }
+.toast.success { border-color: rgba(16,185,129,0.5); color: var(--green); }
+.toast.error { border-color: rgba(239,68,68,0.5); color: var(--red); }
+
+/* ===== CHECKOUT DETAILS ===== */
+.checkout-row {
+  display: flex; justify-content: space-between;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.checkout-row:last-child { border-bottom: none; }
+.checkout-row strong { font-family: var(--font-head); font-size: 22px; color: var(--accent2); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero { flex-direction: column; padding-top: 80px; text-align: center; gap: 40px; }
+  .hero-visual { width: 100%; height: 300px; }
+  .hero-ctas { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 36px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .dash-cards { grid-template-columns: 1fr 1fr; }
+  .order-form-container { padding: 20px; }
+  .modal-box { padding: 24px; }
+  .platform-ring { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ADMIN PANEL (hidden, triggered by 3x logo click) -->
+<div id="adminPanel" class="admin-panel hidden">
+  <div class="admin-overlay" onclick="closeAdmin()"></div>
+  <div class="admin-drawer">
+    <div class="admin-header">
+      <h2>⚡ Admin Control Panel</h2>
+      <button onclick="closeAdmin()" class="admin-close">✕</button>
+    </div>
+    <div class="admin-login" id="adminLogin">
+      <p>Enter admin password</p>
+      <input type="password" id="adminPass" placeholder="Password" />
+      <button onclick="verifyAdmin()">Login</button>
+    </div>
+    <div class="admin-content hidden" id="adminContent">
+      <div class="admin-tabs">
+        <button class="atab active" onclick="showAdminTab('orders')">Orders</button>
+        <button class="atab" onclick="showAdminTab('funds')">Fund Requests</button>
+        <button class="atab" onclick="showAdminTab('users')">Users</button>
+        <button class="atab" onclick="showAdminTab('codes')">Claim Codes</button>
+      </div>
+      <!-- Orders Tab -->
+      <div id="atab-orders" class="atab-content">
+        <h3>All Orders</h3>
+        <div id="adminOrdersList"></div>
+      </div>
+      <!-- Fund Requests Tab -->
+      <div id="atab-funds" class="atab-content hidden">
+        <h3>Fund Requests</h3>
+        <div id="adminFundsList"></div>
+        <div class="admin-gen-link">
+          <h4>Generate Fund Link for User</h4>
+          <input type="text" id="genUserId" placeholder="User ID" />
+          <input type="number" id="genAmount" placeholder="Amount (GHS)" />
+          <button onclick="generateFundLink()">Generate Link</button>
+          <div id="generatedLink"></div>
+        </div>
+      </div>
+      <!-- Users Tab -->
+      <div id="atab-users" class="atab-content hidden">
+        <h3>All Users</h3>
+        <div id="adminUsersList"></div>
+      </div>
+      <!-- Claim Codes Tab -->
+      <div id="atab-codes" class="atab-content hidden">
+        <h3>Generate Claim Code</h3>
+        <input type="number" id="codeAmount" placeholder="Amount (GHS)" />
+        <input type="text" id="codeCustom" placeholder="Custom code (optional)" />
+        <button onclick="generateClaimCode()">Generate Code</button>
+        <div id="generatedCode"></div>
+        <h3 style="margin-top:20px">Existing Codes</h3>
+        <div id="adminCodesList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" id="navLogo" onclick="handleLogoClick()">
+      <div class="logo-mark">
+        <span class="logo-icon">⚡</span>
+      </div>
+      <span class="logo-text">Globle<span class="logo-accent">Booster</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-sel">🌐 EN</div>
+      <button class="btn-outline" onclick="openLogin()">Login</button>
+      <button class="btn-primary" onclick="openSignup()">Get Started</button>
+    </div>
+    <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+  </div>
+  <div class="mobile-menu hidden" id="mobileMenu">
+    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a href="#how-it-works" onclick="toggleMobileMenu()">How It Works</a>
+    <a href="#testimonials" onclick="toggleMobileMenu()">Reviews</a>
+    <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    <button class="btn-outline" onclick="openLogin()">Login</button>
+    <button class="btn-primary" onclick="openSignup()">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">🇬🇭 Trusted by 10,000+ Ghanaians</div>
+    <h1 class="hero-title">
+      Grow Your<br>
+      <span class="hero-gradient">Social Media</span><br>
+      <span class="hero-outline">Instantly</span>
+    </h1>
+    <p class="hero-sub">Real followers, likes, views & more across TikTok, Instagram, Facebook, YouTube, Telegram & WhatsApp. Pay with MoMo. Results in minutes.</p>
+    <div class="hero-ctas">
+      <button class="btn-hero-primary" onclick="scrollToServices()">Explore Services ↓</button>
+      <button class="btn-hero-secondary" onclick="openSignup()">Create Account Free</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Orders Delivered</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Platforms Supported</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">⚡ 10min</span><span class="stat-label">Avg Delivery</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="float-card card1">
+      <div class="fc-icon">📱</div>
+      <div><div class="fc-title">TikTok Followers</div><div class="fc-val">+2,500</div></div>
+    </div>
+    <div class="float-card card2">
+      <div class="fc-icon">❤️</div>
+      <div><div class="fc-title">Instagram Likes</div><div class="fc-val">+10,000</div></div>
+    </div>
+    <div class="float-card card3">
+      <div class="fc-icon">👁️</div>
+      <div><div class="fc-title">YouTube Views</div><div class="fc-val">+50,000</div></div>
+    </div>
+    <div class="platform-ring">
+      <div class="pr-item pr-tiktok">TT</div>
+      <div class="pr-item pr-ig">IG</div>
+      <div class="pr-item pr-fb">FB</div>
+      <div class="pr-item pr-yt">YT</div>
+      <div class="pr-item pr-tg">TG</div>
+      <div class="pr-item pr-wa">WA</div>
+      <div class="pr-center">⚡</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services-section" id="services">
+  <div class="section-header">
+    <div class="section-tag">Services</div>
+    <h2>Choose Your Platform</h2>
+    <p>Premium social media growth across all major platforms</p>
+  </div>
+
+  <!-- Platform Tabs -->
+  <div class="platform-tabs">
+    <button class="ptab active" onclick="switchPlatform('tiktok')" data-platform="tiktok">
+      <span class="ptab-icon">🎵</span> TikTok
+    </button>
+    <button class="ptab" onclick="switchPlatform('instagram')" data-platform="instagram">
+      <span class="ptab-icon">📸</span> Instagram
+    </button>
+    <button class="ptab" onclick="switchPlatform('facebook')" data-platform="facebook">
+      <span class="ptab-icon">👥</span> Facebook
+    </button>
+    <button class="ptab" onclick="switchPlatform('telegram')" data-platform="telegram">
+      <span class="ptab-icon">✈️</span> Telegram
+    </button>
+    <button class="ptab" onclick="switchPlatform('youtube')" data-platform="youtube">
+      <span class="ptab-icon">▶️</span> YouTube
+    </button>
+    <button class="ptab" onclick="switchPlatform('whatsapp')" data-platform="whatsapp">
+      <span class="ptab-icon">💬</span> WhatsApp
+    </button>
+  </div>
+
+  <!-- Order Form -->
+  <div class="order-form-container" id="orderFormContainer">
+    <!-- Dynamically rendered -->
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how-it-works">
+  <div class="section-header">
+    <div class="section-tag">Process</div>
+    <h2>How It Works</h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon">🔐</div>
+      <h3>Create Account</h3>
+      <p>Sign up free and get your unique user ID and referral code instantly.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon">💳</div>
+      <h3>Add Funds via MoMo</h3>
+      <p>Top up your balance using Mobile Money. Fast, safe, and simple.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon">📋</div>
+      <h3>Place Your Order</h3>
+      <p>Choose your platform, service, quantity and submit. We handle the rest.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-icon">🚀</div>
+      <h3>Watch It Grow</h3>
+      <p>Results start within 10 minutes. Track your order in your dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section-header">
+    <div class="section-tag">Reviews</div>
+    <h2>What Our Customers Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-top">
+        <div class="tcard-avatar" style="background:#ff4d4d">KA</div>
+        <div>
+          <div class="tcard-name">Kwame Asante</div>
+          <div class="tcard-loc">🇬🇭 Accra</div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <p>"Ordered 5000 TikTok followers and they arrived in under 15 minutes! Very impressed with the quality. Will definitely order again. 💯"</p>
+      <div class="tcard-service">TikTok Followers</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <div class="tcard-avatar" style="background:#7c3aed">AM</div>
+        <div>
+          <div class="tcard-name">Abena Mensah</div>
+          <div class="tcard-loc">🇬🇭 Kumasi</div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <p>"My Instagram page went from 200 to 2000 followers in one day. The MoMo payment is so convenient. Best service in Ghana!"</p>
+      <div class="tcard-service">Instagram Followers</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <div class="tcard-avatar" style="background:#059669">KO</div>
+        <div>
+          <div class="tcard-name">Kofi Owusu</div>
+          <div class="tcard-loc">🇬🇭 Takoradi</div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <p>"Used the YouTube views service for my music video. Got 10,000 views overnight! My channel is growing so fast now. Thank you Globle Booster!"</p>
+      <div class="tcard-service">YouTube Views</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <div class="tcard-avatar" style="background:#d97706">AO</div>
+        <div>
+          <div class="tcard-name">Akosua Osei</div>
+          <div class="tcard-loc">🇬🇭 Tema</div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <p>"The referral program is amazing! I earned 30 GHS just by sharing my link with friends. Everybody wins with Globle Booster!"</p>
+      <div class="tcard-service">Referral Program</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <div class="tcard-avatar" style="background:#0ea5e9">EY</div>
+        <div>
+          <div class="tcard-name">Emmanuel Yeboah</div>
+          <div class="tcard-loc">🇬🇭 Cape Coast</div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <p>"Bought Facebook page followers for my business. Great quality, real-looking profiles. Customer support is also very responsive!"</p>
+      <div class="tcard-service">Facebook Followers</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <div class="tcard-avatar" style="background:#e11d48">SA</div>
+        <div>
+          <div class="tcard-name">Serwa Acheampong</div>
+          <div class="tcard-loc">🇬🇭 Sunyani</div>
+        </div>
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <p>"I was skeptical at first but after trying with a small order, I'm now a loyal customer. Telegram channel grew by 3000 members. 🔥"</p>
+      <div class="tcard-service">Telegram Members</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header">
+    <div class="section-tag">FAQ</div>
+    <h2>Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>How do I deposit with MoMo?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Click "Add Funds" in your dashboard. You'll be redirected to our secure Paystack payment page. Select Mobile Money, enter your MoMo number and amount, then confirm the prompt on your phone. Your balance is credited instantly after confirmation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>How fast will I receive my order?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Most orders begin within 1–10 minutes. Delivery speed depends on the service and quantity. Larger orders may take slightly longer but are always completed within the estimated time shown during checkout.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Is my account safe?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Yes! We never ask for your account password. We only need your public profile link or username. Our methods are safe and comply with platform guidelines. However, ensure your account is public before placing an order.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>What if my followers drop?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">We offer a 30-day refill guarantee on most services. If your followers drop within 30 days of delivery, contact us and we'll refill them for free. Note: drops may occur due to platform purges — this is outside our control.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>How does the referral program work?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Share your unique referral link with friends. When they make their first purchase, you earn 3 GHS and they get 2 GHS credited to their account. You can refer up to 10 friends, earning up to 30 GHS total.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>What is a Claim Code?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">Claim codes are special codes generated by our admin that add funds to your account instantly. You may receive these through promotions, giveaways, or special offers. Enter the code in your dashboard to redeem.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Do you offer refunds?</span><span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-a">We offer refunds if an order cannot be delivered. If delivery fails, funds are returned to your account balance automatically. Cash refunds are processed within 3–5 business days upon request. See our Refund Policy for full details.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <div class="section-tag">Contact</div>
+    <h2>Get In Touch</h2>
+    <p>We're here to help 24/7</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">📱</div>
+      <h3>WhatsApp</h3>
+      <p>Chat with us instantly on WhatsApp for fast support</p>
+      <a href="https://wa.me/233500643544" target="_blank" class="contact-btn wa-btn">+233 500 643 544</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <h3>Email</h3>
+      <p>Send us an email for non-urgent inquiries</p>
+      <a href="mailto:support@globlebooster.com" class="contact-btn">support@globlebooster.com</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">💬</div>
+      <h3>Live Chat</h3>
+      <p>Start a live chat session right now</p>
+      <button class="contact-btn" onclick="openLiveChat()">Start Live Chat</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="logo-icon">⚡</span>
+        <span>Globle<span class="logo-accent">Booster</span></span>
+      </div>
+      <p>Ghana's #1 social media growth platform. Real results, fast delivery, MoMo payments.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/233500643544" target="_blank">📱 WhatsApp</a>
+        <a href="mailto:support@globlebooster.com">📧 Email</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <a href="#" onclick="switchPlatform('tiktok'); scrollToServices()">TikTok</a>
+      <a href="#" onclick="switchPlatform('instagram'); scrollToServices()">Instagram</a>
+      <a href="#" onclick="switchPlatform('facebook'); scrollToServices()">Facebook</a>
+      <a href="#" onclick="switchPlatform('youtube'); scrollToServices()">YouTube</a>
+      <a href="#" onclick="switchPlatform('telegram'); scrollToServices()">Telegram</a>
+      <a href="#" onclick="switchPlatform('whatsapp'); scrollToServices()">WhatsApp</a>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#faq">FAQ</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <a href="#" onclick="showLegal('terms')">Terms of Service</a>
+      <a href="#" onclick="showLegal('privacy')">Privacy Policy</a>
+      <a href="#" onclick="showLegal('refund')">Refund Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 GlobleBooster. All rights reserved. | Registered Business, Ghana 🇬🇭</p>
+    <p>Payment secured by <strong>Paystack</strong> | MoMo Accepted ✅</p>
+  </div>
+</footer>
+
+<!-- MODALS -->
+
+<!-- Auth Modal -->
+<div id="authModal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('authModal')"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('authModal')">✕</button>
+    <div id="loginForm">
+      <h2>Welcome Back</h2>
+      <p>Login to your Globle Booster account</p>
+      <input type="email" id="loginEmail" placeholder="Email address" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button class="btn-primary full" onclick="doLogin()">Login</button>
+      <p class="auth-switch">Don't have an account? <a onclick="showSignup()">Sign up free</a></p>
+    </div>
+    <div id="signupForm" class="hidden">
+      <h2>Create Account</h2>
+      <p>Join 10,000+ Ghanaians growing on social media</p>
+      <input type="text" id="signupName" placeholder="Full name" />
+      <input type="email" id="signupEmail" placeholder="Email address" />
+      <input type="tel" id="signupPhone" placeholder="Phone (MoMo number)" />
+      <input type="password" id="signupPassword" placeholder="Create password" />
+      <input type="text" id="signupRef" placeholder="Referral code (optional)" />
+      <button class="btn-primary full" onclick="doSignup()">Create Free Account</button>
+      <p class="auth-switch">Already have an account? <a onclick="showLogin()">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Dashboard Modal -->
+<div id="dashboardModal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('dashboardModal')"></div>
+  <div class="modal-box dash-box">
+    <button class="modal-close" onclick="closeModal('dashboardModal')">✕</button>
+    <div class="dash-header">
+      <div>
+        <h2 id="dashUserName">Hello, User!</h2>
+        <p>ID: <strong id="dashUserId"></strong></p>
+      </div>
+      <button class="btn-primary" onclick="closeModal('dashboardModal'); openAddFunds()">+ Add Funds</button>
+    </div>
+    <div class="dash-cards">
+      <div class="dash-card">
+        <div class="dc-label">Balance</div>
+        <div class="dc-val" id="dashBalance">0 GHS</div>
+      </div>
+      <div class="dash-card">
+        <div class="dc-label">Active Orders</div>
+        <div class="dc-val" id="dashActiveOrders">0</div>
+      </div>
+      <div class="dash-card">
+        <div class="dc-label">Referral Earnings</div>
+        <div class="dc-val" id="dashRefEarnings">0 GHS</div>
+      </div>
+    </div>
+
+    <div class="dash-tabs">
+      <button class="dtab active" onclick="showDashTab('orders')">Order History</button>
+      <button class="dtab" onclick="showDashTab('referral')">Referral Program</button>
+      <button class="dtab" onclick="showDashTab('claim')">Claim Code</button>
+    </div>
+
+    <!-- Orders Tab -->
+    <div id="dtab-orders" class="dtab-content">
+      <table class="order-table">
+        <thead><tr><th>ID</th><th>Service</th><th>Qty</th><th>Amount</th><th>Status</th></tr></thead>
+        <tbody id="userOrdersBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Referral Tab -->
+    <div id="dtab-referral" class="dtab-content hidden">
+      <div class="ref-program">
+        <h3>Your Referral Program</h3>
+        <p>Share your unique link. When friends buy, <strong>you earn 3 GHS</strong> and <strong>they get 2 GHS</strong>. Max 10 referrals = 30 GHS.</p>
+        <div class="ref-stats">
+          <div class="ref-stat"><span id="refCount">0</span><small>Referrals</small></div>
+          <div class="ref-stat"><span id="refEarned">0 GHS</span><small>Earned</small></div>
+          <div class="ref-stat"><span id="refMax">30 GHS</span><small>Max Possible</small></div>
+        </div>
+        <div class="ref-link-box">
+          <input type="text" id="refLinkInput" readonly />
+          <button onclick="copyRefLink()">Copy</button>
+        </div>
+        <p class="ref-note">🎯 <span id="refProgress">0</span>/10 referrals used</p>
+      </div>
+    </div>
+
+    <!-- Claim Tab -->
+    <div id="dtab-claim" class="dtab-content hidden">
+      <div class="claim-box">
+        <h3>Claim Code</h3>
+        <p>Enter a promo or claim code to add funds instantly to your balance.</p>
+        <div class="claim-input-row">
+          <input type="text" id="claimCodeInput" placeholder="Enter code e.g. BOOST50" />
+          <button onclick="redeemCode()">Redeem</button>
+        </div>
+        <div id="claimMsg"></div>
+      </div>
+    </div>
+
+    <button class="btn-outline full" onclick="doLogout()" style="margin-top:20px">Logout</button>
+  </div>
+</div>
+
+<!-- Add Funds Modal -->
+<div id="addFundsModal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('addFundsModal')"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('addFundsModal')">✕</button>
+    <h2>Add Funds</h2>
+    <p>Your balance will be topped up via MoMo through our secure Paystack gateway.</p>
+    <p>Your User ID <strong id="fundsUserId"></strong> will be sent to the admin to confirm your payment.</p>
+    <div class="funds-amounts">
+      <button onclick="selectAmount(20)">20 GHS</button>
+      <button onclick="selectAmount(50)">50 GHS</button>
+      <button onclick="selectAmount(100)">100 GHS</button>
+      <button onclick="selectAmount(200)">200 GHS</button>
+    </div>
+    <input type="number" id="customAmount" placeholder="Or enter custom amount (GHS)" />
+    <button class="btn-primary full" onclick="proceedToPaystack()">Proceed to Payment ↗</button>
+    <p class="funds-note">🔒 Secured by Paystack | Admin will confirm your payment via WhatsApp</p>
+  </div>
+</div>
+
+<!-- Legal Modal -->
+<div id="legalModal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('legalModal')"></div>
+  <div class="modal-box legal-box">
+    <button class="modal-close" onclick="closeModal('legalModal')">✕</button>
+    <div id="legalContent"></div>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal hidden">
+  <div class="modal-overlay" onclick="closeModal('checkoutModal')"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('checkoutModal')">✕</button>
+    <h2>Confirm Order</h2>
+    <div id="checkoutDetails"></div>
+    <button class="btn-primary full" onclick="placeOrder()">Place Order & Pay</button>
+    <p style="text-align:center;margin-top:10px;font-size:13px;opacity:0.7">Funds will be deducted from your balance</p>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden"></div>
+
+<script>
+/* ====================================================
+   GLOBLE BOOSTER – app.js
+   ==================================================== */
+
+// ===== STATE =====
+let currentUser = null;
+let currentPlatform = 'tiktok';
+let selectedAmount = null;
+let logoClickCount = 0;
+let logoClickTimer = null;
+let pendingOrder = null;
+
+// Local "DB" (localStorage-based)
+function getDB() { return JSON.parse(localStorage.getItem('gb_db') || '{}'); }
+function setDB(db) { localStorage.setItem('gb_db', JSON.stringify(db)); }
+function initDB() {
+  const db = getDB();
+  if (!db.users) db.users = {};
+  if (!db.orders) db.orders = [];
+  if (!db.fundRequests) db.fundRequests = [];
+  if (!db.claimCodes) db.claimCodes = {};
+  if (!db.fundLinks) db.fundLinks = {};
+  setDB(db);
+}
+initDB();
+
+// ===== PLATFORM DATA =====
+const PLATFORMS = {
+  tiktok: {
+    name: 'TikTok', icon: '🎵', color: '#010101',
+    delivery: '~10 minutes',
+    services: [
+      { id: 'tt_followers', name: 'Followers', min: 100, max: 50000,
+        avgPrice: 85, premiumMult: 1.03,
+        warning: '⚠️ Ensure your account is public before ordering.' },
+      { id: 'tt_likes', name: 'Video Likes', min: 100, max: 100000,
+        avgPrice: 55, premiumMult: 1.03,
+        warning: '⚠️ Paste your exact video URL below.' },
+      { id: 'tt_views', name: 'Video Views', min: 1000, max: 1000000,
+        avgPrice: 10, premiumMult: 1.03, warning: null },
+      { id: 'tt_saves', name: 'Video Saves', min: 100, max: 50000,
+        avgPrice: 5, premiumMult: 1.03, warning: null },
+      { id: 'tt_shares', name: 'Video Shares', min: 100, max: 50000,
+        avgPrice: 5, premiumMult: 1.03, warning: null },
+      { id: 'tt_comments', name: 'Custom Comments', type: 'comments',
+        min: 10, max: 1000, premiumPrice: 20,
+        note: 'Premium: 20 GHS / 10 comments', warning: null },
+      { id: 'tt_ls_likes', name: 'Livestream Likes', min: 100, max: 50000,
+        avgPrice: 6, premiumMult: 1.03,
+        warning: '⚠️ Livestream must be active during delivery.' },
+      { id: 'tt_ls_viewers', name: 'Livestream Viewers', min: 10, max: 10000,
+        avgPrice: 85, premiumMult: 1.03,
+        warning: '⚠️ Livestream must be active. Viewers join within minutes.' }
+    ]
+  },
+  instagram: {
+    name: 'Instagram', icon: '📸', color: '#833ab4',
+    delivery: '~10 minutes',
+    services: [
+      { id: 'ig_followers', name: 'Followers', min: 100, max: 50000,
+        avgPrice: 50, premiumMult: 1.05,
+        warning: '⚠️ Account must be public. No private accounts.' },
+      { id: 'ig_likes', name: 'Post Likes', min: 100, max: 100000,
+        avgPrice: 10, premiumMult: 1.03, warning: null },
+      { id: 'ig_views', name: 'Video/Reel Views', min: 1000, max: 1000000,
+        avgPrice: 5, premiumMult: 1.03, warning: null },
+      { id: 'ig_comments', name: 'Custom Comments', type: 'comments',
+        min: 10, max: 1000, avgPrice: 5,
+        note: '5 GHS / 10 comments', warning: null },
+      { id: 'ig_story', name: 'Story Views', min: 100, max: 50000,
+        avgPrice: 5, premiumMult: 1.03,
+        warning: '⚠️ Story must be active and account public.' }
+    ]
+  },
+  facebook: {
+    name: 'Facebook', icon: '👥', color: '#1877f2',
+    delivery: '~10 minutes',
+    services: [
+      { id: 'fb_page_followers', name: 'Page Followers', min: 100, max: 50000,
+        avgPrice: 50, premiumMult: 1.03,
+        warning: '⚠️ Paste your Facebook Page URL.' },
+      { id: 'fb_profile_followers', name: 'Profile Followers', min: 100, max: 20000,
+        avgPrice: 50, premiumMult: 1.03,
+        warning: '⚠️ Profile must be public.' },
+      { id: 'fb_post_likes', name: 'Post Likes', min: 100, max: 100000,
+        avgPrice: 7, premiumMult: 1.03, warning: null },
+      { id: 'fb_group', name: 'Group Members', min: 100, max: 50000,
+        avgPrice: 50, premiumMult: 1.03,
+        warning: '⚠️ Group must be public.' },
+      { id: 'fb_views', name: 'Video Views', min: 1000, max: 500000,
+        avgPrice: 5, premiumMult: 1.03, warning: null },
+      { id: 'fb_comments', name: 'Custom Comments', type: 'comments',
+        min: 10, max: 500, avgPrice: 5,
+        note: '5 GHS / 10 comments', warning: null }
+    ]
+  },
+  telegram: {
+    name: 'Telegram', icon: '✈️', color: '#2aabee',
+    delivery: '~15 minutes',
+    services: [
+      { id: 'tg_members', name: 'Group/Channel Members', min: 100, max: 50000,
+        avgPrice: 80, premiumMult: 1.05,
+        warning: '⚠️ Channel/group must be public.' },
+      { id: 'tg_views', name: 'Post Views (Specific/Previous/Future)', min: 1000, max: 1000000,
+        avgPrice: 3, premiumMult: 1.03, warning: null },
+      { id: 'tg_reactions', name: 'Reactions', min: 100, max: 50000,
+        avgPrice: 3, premiumMult: 1.03, warning: null }
+    ]
+  },
+  youtube: {
+    name: 'YouTube', icon: '▶️', color: '#ff0000',
+    delivery: '~20 minutes',
+    services: [
+      { id: 'yt_subs', name: 'Subscribers', min: 100, max: 10000,
+        avgPrice: 550, premiumMult: 1.03,
+        warning: '⚠️ Channel must be public. Do not purchase if channel has monetization.' },
+      { id: 'yt_views', name: 'Views', min: 1000, max: 1000000,
+        avgPrice: 30, premiumMult: 1.05, warning: null },
+      { id: 'yt_likes', name: 'Likes', min: 100, max: 50000,
+        avgPrice: 60, premiumMult: 1.07, warning: null },
+      { id: 'yt_comments', name: 'Custom Comments', type: 'comments',
+        min: 10, max: 500, avgPrice: 20,
+        note: '20 GHS / 10 comments', warning: null }
+    ]
+  },
+  whatsapp: {
+    name: 'WhatsApp', icon: '💬', color: '#25d366',
+    delivery: '~10 minutes',
+    services: [
+      { id: 'wa_followers', name: 'Channel Followers (Global/American/Indian)', min: 100, max: 50000,
+        avgPrice: 50, premiumMult: 1.05,
+        warning: '⚠️ WhatsApp Channel must be public.', hasGeo: true },
+      { id: 'wa_reactions', name: 'Channel Emoji Reactions', min: 100, max: 50000,
+        avgPrice: 30, premiumMult: 1.03, warning: null }
+    ]
+  }
+};
+
+// ===== RENDER ORDER FORM =====
+function renderOrderForm(platformKey) {
+  const platform = PLATFORMS[platformKey];
+  const container = document.getElementById('orderFormContainer');
+  const platformColors = {
+    tiktok: '#010101', instagram: '#833ab4', facebook: '#1877f2',
+    telegram: '#2aabee', youtube: '#ff0000', whatsapp: '#25d366'
+  };
+  const color = platformColors[platformKey];
+
+  const firstService = platform.services[0];
+
+  container.innerHTML = `
+    <div class="form-platform-header">
+      <div class="form-plat-icon" style="background:${color}20; border:1px solid ${color}40">
+        <span>${platform.icon}</span>
+      </div>
+      <div>
+        <div class="form-plat-title">${platform.name} Services</div>
+        <div class="form-plat-sub">⚡ Avg delivery: ${platform.delivery}</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Service Type</label>
+      <div class="select-wrapper">
+        <select class="form-select" id="serviceSelect" onchange="onServiceChange()">
+          ${platform.services.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group" id="qualityGroup">
+      <label class="form-label">Quality / Type</label>
+      <div class="quality-options" id="qualityOptions">
+        <div class="quality-opt active" onclick="selectQuality(this, 'average')" data-q="average">
+          <div class="quality-opt-name">⭐ Average Quality</div>
+          <div class="quality-opt-price" id="avgPriceLabel">${firstService.avgPrice} GHS / 1k</div>
+        </div>
+        <div class="quality-opt" onclick="selectQuality(this, 'premium')" data-q="premium">
+          <div class="quality-opt-name">💎 Premium</div>
+          <div class="quality-opt-price" id="premPriceLabel">${Math.round((firstService.avgPrice || 0) * (firstService.premiumMult||1))} GHS / 1k</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" id="geoGroup" style="display:none">
+      <label class="form-label">Target Region</label>
+      <div class="select-wrapper">
+        <select class="form-select" id="geoSelect">
+          <option value="global">🌍 Global</option>
+          <option value="american">🇺🇸 American</option>
+          <option value="indian">🇮🇳 Indian</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Account / Content Link</label>
+      <input type="text" class="form-input" id="linkInput" placeholder="Paste your profile/content URL here..." />
+    </div>
+
+    <div class="form-group" id="quantityGroup">
+      <label class="form-label">Quantity <span id="qtyDisplay" style="color:var(--accent2)">0</span></label>
+      <div class="qty-row">
+        <input type="number" class="qty-input" id="qtyInput" min="${firstService.min}" max="${firstService.max}" value="${firstService.min}" oninput="onQtyChange()" />
+        <input type="range" class="qty-slider" id="qtySlider" min="${firstService.min}" max="${firstService.max}" value="${firstService.min}" oninput="syncQtySlider()" />
+      </div>
+      <div class="qty-limits">Min: <strong>${firstService.min.toLocaleString()}</strong> | Max: <strong>${firstService.max.toLocaleString()}</strong></div>
+    </div>
+
+    <div class="form-group" id="commentTextGroup" style="display:none">
+      <label class="form-label">Comments (one per line)</label>
+      <textarea class="form-input" id="commentsText" rows="4" placeholder="Enter your custom comments here, one per line..."></textarea>
+    </div>
+
+    <div id="warningBox"></div>
+
+    <div class="price-display">
+      <div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px">TOTAL PRICE</div>
+        <div class="price-total"><span id="priceTotal">0</span> GHS</div>
+      </div>
+      <div class="price-details">
+        <div class="price-per" id="pricePerLabel"></div>
+        <div class="price-delivery">⚡ ${platform.delivery}</div>
+      </div>
+    </div>
+
+    <button class="btn-order" onclick="handleOrder()">
+      ${platform.icon} Order Now – <span id="btnPrice">0 GHS</span>
+    </button>
+  `;
+
+  onServiceChange();
+}
+
+function getSelectedService() {
+  const sel = document.getElementById('serviceSelect');
+  const platform = PLATFORMS[currentPlatform];
+  return platform.services.find(s => s.id === sel.value);
+}
+
+function getSelectedQuality() {
+  const active = document.querySelector('.quality-opt.active');
+  return active ? active.dataset.q : 'average';
+}
+
+function getPricePer1k(service, quality) {
+  if (service.type === 'comments') {
+    return service.premiumPrice || service.avgPrice || 5;
+  }
+  const base = service.avgPrice || 0;
+  if (quality === 'premium') return parseFloat((base * (service.premiumMult || 1.03)).toFixed(2));
+  return base;
+}
+
+function onServiceChange() {
+  const service = getSelectedService();
+  const platform = PLATFORMS[currentPlatform];
+  if (!service) return;
+
+  // Update quality labels
+  const avgLabel = document.getElementById('avgPriceLabel');
+  const premLabel = document.getElementById('premPriceLabel');
+  if (service.type === 'comments') {
+    if (avgLabel) avgLabel.textContent = service.note || '';
+    if (premLabel) premLabel.textContent = '';
+    document.getElementById('qualityGroup').style.display = 'none';
+    document.getElementById('quantityGroup').style.display = 'none';
+    document.getElementById('commentTextGroup').style.display = '';
+  } else {
+    document.getElementById('qualityGroup').style.display = '';
+    document.getElementById('quantityGroup').style.display = '';
+    document.getElementById('commentTextGroup').style.display = 'none';
+    if (avgLabel) avgLabel.textContent = `${service.avgPrice} GHS / 1k`;
+    const premPrice = Math.round((service.avgPrice || 0) * (service.premiumMult || 1.03));
+    if (premLabel) premLabel.textContent = `${premPrice} GHS / 1k`;
+  }
+
+  // Geo targeting
+  const geoGroup = document.getElementById('geoGroup');
+  if (service.hasGeo) geoGroup.style.display = '';
+  else geoGroup.style.display = 'none';
+
+  // Update qty
+  const qtyInput = document.getElementById('qtyInput');
+  const qtySlider = document.getElementById('qtySlider');
+  if (qtyInput && service.min) {
+    qtyInput.min = service.min;
+    qtyInput.max = service.max;
+    qtyInput.value = service.min;
+  }
+  if (qtySlider && service.min) {
+    qtySlider.min = service.min;
+    qtySlider.max = service.max;
+    qtySlider.value = service.min;
+  }
+  const limitsEl = document.querySelector('.qty-limits');
+  if (limitsEl && service.min) {
+    limitsEl.innerHTML = `Min: <strong>${service.min.toLocaleString()}</strong> | Max: <strong>${service.max.toLocaleString()}</strong>`;
+  }
+
+  // Warning
+  const wb = document.getElementById('warningBox');
+  if (service.warning) {
+    wb.innerHTML = `<div class="form-warning">${service.warning}</div>`;
+  } else {
+    wb.innerHTML = '';
+  }
+
+  calcPrice();
+}
+
+function selectQuality(el, q) {
+  document.querySelectorAll('.quality-opt').forEach(o => o.classList.remove('active'));
+  el.classList.add('active');
+  calcPrice();
+}
+
+function onQtyChange() {
+  const qi = document.getElementById('qtyInput');
+  const qs = document.getElementById('qtySlider');
+  if (qs) qs.value = qi.value;
+  const qd = document.getElementById('qtyDisplay');
+  if (qd) qd.textContent = parseInt(qi.value || 0).toLocaleString();
+  calcPrice();
+}
+
+function syncQtySlider() {
+  const qi = document.getElementById('qtyInput');
+  const qs = document.getElementById('qtySlider');
+  if (qi) qi.value = qs.value;
+  onQtyChange();
+}
+
+function calcPrice() {
+  const service = getSelectedService();
+  if (!service) return;
+  const quality = getSelectedQuality();
+  const qty = parseInt(document.getElementById('qtyInput')?.value || 0);
+  const pricePer1k = getPricePer1k(service, quality);
+  let total = 0;
+  if (service.type === 'comments') {
+    const lines = (document.getElementById('commentsText')?.value || '').split('\n').filter(l => l.trim()).length;
+    total = Math.ceil(lines / 10) * pricePer1k;
+  } else {
+    total = parseFloat(((qty / 1000) * pricePer1k).toFixed(2));
+  }
+  const totalEl = document.getElementById('priceTotal');
+  const btnEl = document.getElementById('btnPrice');
+  const perEl = document.getElementById('pricePerLabel');
+  if (totalEl) totalEl.textContent = total;
+  if (btnEl) btnEl.textContent = `${total} GHS`;
+  if (perEl) perEl.textContent = service.type !== 'comments' ? `${pricePer1k} GHS / 1k ${service.name}` : service.note || '';
+}
+
+function switchPlatform(key) {
+  currentPlatform = key;
+  document.querySelectorAll('.ptab').forEach(t => {
+    t.classList.toggle('active', t.dataset.platform === key);
+  });
+  renderOrderForm(key);
+}
+
+function scrollToServices() {
+  document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===== INIT =====
+renderOrderForm('tiktok');
+
+// ===== AUTH =====
+function generateUID() {
+  return 'GB' + Math.random().toString(36).substr(2, 8).toUpperCase();
+}
+
+function generateRefCode(uid) {
+  return 'REF' + uid.substr(2, 6);
+}
+
+function openLogin() {
+  if (currentUser) { openDashboard(); return; }
+  showLogin();
+  openModal('authModal');
+}
+
+function openSignup() {
+  showSignup();
+  openModal('authModal');
+}
+
+function showLogin() {
+  document.getElementById('loginForm').classList.remove('hidden');
+  document.getElementById('signupForm').classList.add('hidden');
+}
+
+function showSignup() {
+  document.getElementById('loginForm').classList.add('hidden');
+  document.getElementById('signupForm').classList.remove('hidden');
+}
+
+function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPassword').value;
+  if (!email || !pass) { showToast('Please fill in all fields', 'error'); return; }
+  const db = getDB();
+  const user = Object.values(db.users).find(u => u.email === email && u.password === pass);
+  if (!user) { showToast('Invalid email or password', 'error'); return; }
+  currentUser = user;
+  localStorage.setItem('gb_session', user.uid);
+  closeModal('authModal');
+  showToast(`Welcome back, ${user.name}! 👋`, 'success');
+  updateNavForUser();
+}
+
+function doSignup() {
+  const name = document.getElementById('signupName').value.trim();
+  const email = document.getElementById('signupEmail').value.trim();
+  const phone = document.getElementById('signupPhone').value.trim();
+  const pass = document.getElementById('signupPassword').value;
+  const ref = document.getElementById('signupRef').value.trim().toUpperCase();
+  if (!name || !email || !phone || !pass) { showToast('Please fill in all fields', 'error'); return; }
+  const db = getDB();
+  if (Object.values(db.users).find(u => u.email === email)) {
+    showToast('Email already registered', 'error'); return;
+  }
+  const uid = generateUID();
+  const refCode = generateRefCode(uid);
+  let bonus = 0;
+  // Handle referral
+  if (ref) {
+    const referrer = Object.values(db.users).find(u => u.refCode === ref);
+    if (referrer && (referrer.referrals || []).length < 10) {
+      referrer.referrals = referrer.referrals || [];
+      referrer.referrals.push(uid);
+      referrer.balance = (referrer.balance || 0) + 3;
+      db.users[referrer.uid] = referrer;
+      bonus = 2;
+    }
+  }
+  const newUser = {
+    uid, name, email, phone, password: pass,
+    refCode, balance: bonus, referrals: [],
+    orders: [], joined: new Date().toISOString()
+  };
+  db.users[uid] = newUser;
+  setDB(db);
+  currentUser = newUser;
+  localStorage.setItem('gb_session', uid);
+  closeModal('authModal');
+  showToast(`Account created! ${bonus > 0 ? `You got ${bonus} GHS bonus! 🎉` : 'Welcome to Globle Booster! 🚀'}`, 'success');
+  updateNavForUser();
+}
+
+function doLogout() {
+  currentUser = null;
+  localStorage.removeItem('gb_session');
+  closeModal('dashboardModal');
+  updateNavForUser();
+  showToast('Logged out successfully', 'success');
+}
+
+function updateNavForUser() {
+  const actions = document.querySelector('.nav-actions');
+  if (currentUser) {
+    actions.innerHTML = `
+      <div class="lang-sel">🌐 EN</div>
+      <div style="font-size:13px;color:var(--text-muted)">${currentUser.uid}</div>
+      <button class="btn-outline" onclick="openDashboard()">Dashboard</button>
+      <button class="btn-primary" onclick="openAddFunds()">+ Add Funds</button>
+    `;
+  } else {
+    actions.innerHTML = `
+      <div class="lang-sel">🌐 EN</div>
+      <button class="btn-outline" onclick="openLogin()">Login</button>
+      <button class="btn-primary" onclick="openSignup()">Get Started</button>
+    `;
+  }
+}
+
+// Auto-login from session
+window.addEventListener('load', () => {
+  const sess = localStorage.getItem('gb_session');
+  if (sess) {
+    const db = getDB();
+    if (db.users[sess]) { currentUser = db.users[sess]; updateNavForUser(); }
+  }
+});
+
+// ===== DASHBOARD =====
+function openDashboard() {
+  if (!currentUser) { openLogin(); return; }
+  const db = getDB();
+  currentUser = db.users[currentUser.uid]; // refresh
+  document.getElementById('dashUserName').textContent = `Hello, ${currentUser.name}! 👋`;
+  document.getElementById('dashUserId').textContent = currentUser.uid;
+  document.getElementById('dashBalance').textContent = `${(currentUser.balance || 0).toFixed(2)} GHS`;
+  const active = (currentUser.orders || []).filter(o => o.status === 'active').length;
+  document.getElementById('dashActiveOrders').textContent = active;
+  document.getElementById('dashRefEarnings').textContent = `${(currentUser.referrals || []).length * 3} GHS`;
+
+  // Referral
+  document.getElementById('refCount').textContent = (currentUser.referrals || []).length;
+  document.getElementById('refEarned').textContent = `${(currentUser.referrals || []).length * 3} GHS`;
+  document.getElementById('refProgress').textContent = (currentUser.referrals || []).length;
+  const refLink = `${window.location.origin}${window.location.pathname}?ref=${currentUser.refCode}`;
+  document.getElementById('refLinkInput').value = refLink;
+
+  renderUserOrders();
+  openModal('dashboardModal');
+  showDashTab('orders');
+}
+
+function renderUserOrders() {
+  const body = document.getElementById('userOrdersBody');
+  const orders = (currentUser.orders || []).reverse();
+  if (!orders.length) {
+    body.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:20px">No orders yet</td></tr>';
+    return;
+  }
+  body.innerHTML = orders.map(o => `
+    <tr>
+      <td><code style="font-size:11px">${o.id}</code></td>
+      <td>${o.service}</td>
+      <td>${(o.qty || 0).toLocaleString()}</td>
+      <td>${o.amount} GHS</td>
+      <td><span class="status-badge status-${o.status}">${o.status}</span></td>
+    </tr>
+  `).join('');
+}
+
+function showDashTab(tab) {
+  document.querySelectorAll('.dtab-content').forEach(t => t.classList.add('hidden'));
+  document.querySelectorAll('.dtab').forEach(t => t.classList.remove('active'));
+  document.getElementById(`dtab-${tab}`).classList.remove('hidden');
+  document.querySelectorAll('.dtab').forEach(t => {
+    if (t.textContent.toLowerCase().includes(tab === 'orders' ? 'order' : tab === 'referral' ? 'referral' : 'claim'))
+      t.classList.add('active');
+  });
+}
+
+function copyRefLink() {
+  const inp = document.getElementById('refLinkInput');
+  inp.select(); document.execCommand('copy');
+  showToast('Referral link copied! 🔗', 'success');
+}
+
+// ===== CLAIM CODE =====
+function redeemCode() {
+  const code = document.getElementById('claimCodeInput').value.trim().toUpperCase();
+  const msgEl = document.getElementById('claimMsg');
+  if (!code) { msgEl.innerHTML = '<span style="color:var(--red)">Enter a code</span>'; return; }
+  if (!currentUser) { msgEl.innerHTML = '<span style="color:var(--red)">Please login first</span>'; return; }
+  const db = getDB();
+  const codeData = db.claimCodes[code];
+  if (!codeData) { msgEl.innerHTML = '<span style="color:var(--red)">❌ Invalid code</span>'; return; }
+  if (codeData.used) { msgEl.innerHTML = '<span style="color:var(--red)">❌ Code already used</span>'; return; }
+  // Redeem
+  db.claimCodes[code].used = true;
+  db.claimCodes[code].usedBy = currentUser.uid;
+  db.users[currentUser.uid].balance = (db.users[currentUser.uid].balance || 0) + codeData.amount;
+  setDB(db);
+  currentUser = db.users[currentUser.uid];
+  document.getElementById('dashBalance').textContent = `${currentUser.balance.toFixed(2)} GHS`;
+  msgEl.innerHTML = `<span style="color:var(--green)">✅ ${codeData.amount} GHS added to your balance!</span>`;
+  document.getElementById('claimCodeInput').value = '';
+}
+
+// ===== ORDER FLOW =====
+function handleOrder() {
+  if (!currentUser) { openLogin(); showToast('Please login to place an order', 'error'); return; }
+  const service = getSelectedService();
+  const quality = getSelectedQuality();
+  const link = document.getElementById('linkInput')?.value.trim();
+  if (!link) { showToast('Please enter your account/content link', 'error'); return; }
+
+  let qty = 0, amount = 0, displayName = service.name;
+  if (service.type === 'comments') {
+    const lines = (document.getElementById('commentsText')?.value || '').split('\n').filter(l => l.trim());
+    if (!lines.length) { showToast('Please enter at least one comment', 'error'); return; }
+    qty = lines.length;
+    const pricePer10 = service.avgPrice || 5;
+    amount = Math.ceil(qty / 10) * pricePer10;
+  } else {
+    qty = parseInt(document.getElementById('qtyInput')?.value || 0);
+    const pricePer1k = getPricePer1k(service, quality);
+    amount = parseFloat(((qty / 1000) * pricePer1k).toFixed(2));
+  }
+
+  if (amount <= 0) { showToast('Please enter a valid quantity', 'error'); return; }
+
+  const db = getDB();
+  const balance = db.users[currentUser.uid].balance || 0;
+  if (balance < amount) {
+    showToast(`Insufficient balance. You need ${amount} GHS but have ${balance.toFixed(2)} GHS. Please add funds.`, 'error');
+    setTimeout(() => openAddFunds(), 1500);
+    return;
+  }
+
+  const platform = PLATFORMS[currentPlatform];
+  pendingOrder = { service, quality, qty, amount, link, platform: platform.name, displayName: `${platform.name} ${service.name}` };
+
+  const details = document.getElementById('checkoutDetails');
+  details.innerHTML = `
+    <div class="checkout-row"><span>Platform</span><span>${platform.icon} ${platform.name}</span></div>
+    <div class="checkout-row"><span>Service</span><span>${service.name}</span></div>
+    <div class="checkout-row"><span>Quality</span><span>${quality === 'premium' ? '💎 Premium' : '⭐ Average'}</span></div>
+    <div class="checkout-row"><span>Quantity</span><span>${qty.toLocaleString()}</span></div>
+    <div class="checkout-row"><span>Link</span><span style="max-width:200px;overflow:hidden;text-overflow:ellipsis">${link}</span></div>
+    <div class="checkout-row"><span>Delivery</span><span>⚡ ${platform.delivery}</span></div>
+    <div class="checkout-row"><span>Total</span><strong>${amount} GHS</strong></div>
+  `;
+  openModal('checkoutModal');
+}
+
+function placeOrder() {
+  if (!pendingOrder || !currentUser) return;
+  const db = getDB();
+  const orderId = 'ORD' + Date.now().toString(36).toUpperCase();
+  const order = {
+    id: orderId,
+    service: pendingOrder.displayName,
+    qty: pendingOrder.qty,
+    amount: pendingOrder.amount,
+    link: pendingOrder.link,
+    quality: pendingOrder.quality,
+    status: 'active',
+    date: new Date().toISOString(),
+    userId: currentUser.uid
+  };
+  // Deduct balance
+  db.users[currentUser.uid].balance -= pendingOrder.amount;
+  db.users[currentUser.uid].orders = db.users[currentUser.uid].orders || [];
+  db.users[currentUser.uid].orders.push(order);
+  // Also store in global orders
+  db.orders.push(order);
+  setDB(db);
+  currentUser = db.users[currentUser.uid];
+
+  // Send WhatsApp notification to admin
+  const waMsg = encodeURIComponent(
+    `🆕 NEW ORDER from Globle Booster!\n\nOrder ID: ${orderId}\nUser: ${currentUser.name} (${currentUser.uid})\nService: ${pendingOrder.displayName}\nQuality: ${pendingOrder.quality}\nQty: ${pendingOrder.qty.toLocaleString()}\nAmount: ${pendingOrder.amount} GHS\nLink: ${pendingOrder.link}\nDate: ${new Date().toLocaleString()}`
+  );
+  window.open(`https://wa.me/233500643544?text=${waMsg}`, '_blank');
+
+  closeModal('checkoutModal');
+  showToast(`Order placed! ID: ${orderId} ⚡`, 'success');
+  pendingOrder = null;
+
+  // Auto-complete simulation
+  setTimeout(() => {
+    const db2 = getDB();
+    const ord = db2.orders.find(o => o.id === orderId);
+    if (ord) { ord.status = 'completed'; }
+    const uOrd = db2.users[currentUser.uid].orders.find(o => o.id === orderId);
+    if (uOrd) { uOrd.status = 'completed'; }
+    setDB(db2);
+  }, 30000);
+}
+
+// ===== ADD FUNDS =====
+function openAddFunds() {
+  if (!currentUser) { openLogin(); return; }
+  document.getElementById('fundsUserId').textContent = currentUser.uid;
+  selectedAmount = null;
+  document.querySelectorAll('.funds-amounts button').forEach(b => b.classList.remove('selected'));
+  openModal('addFundsModal');
+}
+
+function selectAmount(amount) {
+  selectedAmount = amount;
+  document.querySelectorAll('.funds-amounts button').forEach(b => b.classList.remove('selected'));
+  event.target.classList.add('selected');
+  document.getElementById('customAmount').value = '';
+}
+
+function proceedToPaystack() {
+  const custom = parseInt(document.getElementById('customAmount').value);
+  const amount = custom || selectedAmount;
+  if (!amount || amount < 1) { showToast('Please select or enter an amount', 'error'); return; }
+
+  // Log fund request
+  const db = getDB();
+  const reqId = 'FUND' + Date.now().toString(36).toUpperCase();
+  db.fundRequests = db.fundRequests || [];
+  db.fundRequests.push({
+    id: reqId, userId: currentUser.uid, userName: currentUser.name,
+    amount, status: 'pending', date: new Date().toISOString()
+  });
+  setDB(db);
+
+  // Notify admin via WhatsApp
+  const waMsg = encodeURIComponent(
+    `💰 FUND REQUEST – Globle Booster\n\nRequest ID: ${reqId}\nUser: ${currentUser.name}\nUser ID: ${currentUser.uid}\nAmount: ${amount} GHS\nPhone: ${currentUser.phone}\n\nPlease generate a fund link for this user.`
+  );
+  window.open(`https://wa.me/233500643544?text=${waMsg}`, '_blank');
+
+  // Open Paystack
+  setTimeout(() => {
+    window.open('https://paystack.shop/pay/globle-booter', '_blank');
+  }, 500);
+
+  closeModal('addFundsModal');
+  showToast('Redirecting to payment. Admin has been notified! ✅', 'success');
+}
+
+// Handle fund link from admin (e.g. ?fund=LINK123&uid=GB123&amount=50)
+function checkFundLink() {
+  const params = new URLSearchParams(window.location.search);
+  const fundCode = params.get('fund');
+  const uid = params.get('uid');
+  const amount = parseFloat(params.get('amount'));
+  if (fundCode && uid && amount) {
+    const db = getDB();
+    if (!db.fundLinks) db.fundLinks = {};
+    if (db.fundLinks[fundCode]) { showToast('Fund link already used', 'error'); return; }
+    if (!db.users[uid]) { showToast('User not found', 'error'); return; }
+    db.fundLinks[fundCode] = { used: true, uid, amount, date: new Date().toISOString() };
+    db.users[uid].balance = (db.users[uid].balance || 0) + amount;
+    // Update pending fund request
+    const req = (db.fundRequests || []).find(r => r.userId === uid && r.status === 'pending');
+    if (req) req.status = 'completed';
+    setDB(db);
+    if (currentUser && currentUser.uid === uid) {
+      currentUser = db.users[uid];
+      updateNavForUser();
+    }
+    showToast(`✅ ${amount} GHS has been added to account ${uid}`, 'success');
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+
+  // Check referral
+  const ref = params.get('ref');
+  if (ref) {
+    document.getElementById('signupRef').value = ref;
+    openSignup();
+  }
+}
+window.addEventListener('load', checkFundLink);
+
+// ===== ADMIN PANEL =====
+const ADMIN_PASSWORD = 'GlobleAdmin2025!';
+
+function handleLogoClick() {
+  logoClickCount++;
+  clearTimeout(logoClickTimer);
+  logoClickTimer = setTimeout(() => { logoClickCount = 0; }, 1500);
+  if (logoClickCount >= 3) {
+    logoClickCount = 0;
+    openAdminPanel();
+  }
+}
+
+function openAdminPanel() {
+  document.getElementById('adminPanel').classList.remove('hidden');
+}
+
+function closeAdmin() {
+  document.getElementById('adminPanel').classList.add('hidden');
+  document.getElementById('adminLogin').classList.remove('hidden');
+  document.getElementById('adminContent').classList.add('hidden');
+  document.getElementById('adminPass').value = '';
+}
+
+function verifyAdmin() {
+  const pass = document.getElementById('adminPass').value;
+  if (pass === ADMIN_PASSWORD) {
+    document.getElementById('adminLogin').classList.add('hidden');
+    document.getElementById('adminContent').classList.remove('hidden');
+    loadAdminData();
+  } else {
+    showToast('Wrong password', 'error');
+  }
+}
+
+function showAdminTab(tab) {
+  document.querySelectorAll('.atab-content').forEach(t => t.classList.add('hidden'));
+  document.querySelectorAll('.atab').forEach(t => t.classList.remove('active'));
+  document.getElementById(`atab-${tab}`).classList.remove('hidden');
+  event.target.classList.add('active');
+}
+
+function loadAdminData() {
+  const db = getDB();
+  // Orders
+  const ordersList = document.getElementById('adminOrdersList');
+  const orders = [...(db.orders || [])].reverse();
+  ordersList.innerHTML = orders.length ? orders.map(o => `
+    <div class="admin-order-item">
+      <strong>${o.id}</strong> | ${o.service} | Qty: ${(o.qty||0).toLocaleString()} | ${o.amount} GHS
+      <span class="status-badge status-${o.status}">${o.status}</span><br>
+      <small style="color:var(--text-muted)">${o.link} | User: ${o.userId} | ${new Date(o.date).toLocaleString()}</small>
+    </div>
+  `).join('') : '<p style="color:var(--text-muted)">No orders yet</p>';
+
+  // Fund requests
+  const fundsList = document.getElementById('adminFundsList');
+  const funds = [...(db.fundRequests || [])].reverse();
+  fundsList.innerHTML = funds.length ? funds.map(f => `
+    <div class="admin-fund-item">
+      <strong>${f.id}</strong> | ${f.userName} (${f.userId}) | ${f.amount} GHS
+      <span class="status-badge status-${f.status === 'completed' ? 'completed' : 'pending'}">${f.status}</span><br>
+      <small style="color:var(--text-muted)">${new Date(f.date).toLocaleString()}</small>
+    </div>
+  `).join('') : '<p style="color:var(--text-muted)">No fund requests yet</p>';
+
+  // Users
+  const usersList = document.getElementById('adminUsersList');
+  const users = Object.values(db.users);
+  usersList.innerHTML = users.length ? users.map(u => `
+    <div class="admin-user-item">
+      <strong>${u.name}</strong> (${u.uid}) | ${u.email} | Balance: ${(u.balance||0).toFixed(2)} GHS | Referrals: ${(u.referrals||[]).length}<br>
+      <small style="color:var(--text-muted)">Joined: ${new Date(u.joined).toLocaleDateString()} | Ref Code: ${u.refCode}</small>
+    </div>
+  `).join('') : '<p style="color:var(--text-muted)">No users yet</p>';
+
+  // Codes
+  const codesList = document.getElementById('adminCodesList');
+  const codes = Object.entries(db.claimCodes || {});
+  codesList.innerHTML = codes.length ? codes.map(([code, data]) => `
+    <div class="admin-order-item">
+      <strong>${code}</strong> | ${data.amount} GHS | ${data.used ? `✅ Used by ${data.usedBy}` : '⏳ Available'}
+    </div>
+  `).join('') : '<p style="color:var(--text-muted)">No codes generated</p>';
+}
+
+function generateFundLink() {
+  const uid = document.getElementById('genUserId').value.trim().toUpperCase();
+  const amount = parseFloat(document.getElementById('genAmount').value);
+  if (!uid || !amount) { showToast('Enter user ID and amount', 'error'); return; }
+  const db = getDB();
+  if (!db.users[uid]) { showToast('User not found', 'error'); return; }
+  const linkCode = 'FL' + Date.now().toString(36).toUpperCase();
+  const link = `${window.location.origin}${window.location.pathname}?fund=${linkCode}&uid=${uid}&amount=${amount}`;
+  document.getElementById('generatedLink').innerHTML = `
+    <strong>Fund Link Generated:</strong><br>${link}<br><br>
+    <button onclick="copyToClipboard('${link}')">Copy Link</button>
+    <button onclick="sendFundLinkViaWA('${link}', '${uid}', ${amount})" style="margin-left:8px">Send via WhatsApp</button>
+  `;
+}
+
+function sendFundLinkViaWA(link, uid, amount) {
+  const db = getDB();
+  const user = db.users[uid];
+  const phone = user ? user.phone : '';
+  const msg = encodeURIComponent(`Hello ${user ? user.name : uid}! 👋\n\nYour payment of ${amount} GHS has been confirmed on Globle Booster.\n\nClick this link to add funds to your account:\n${link}\n\nThank you for using Globle Booster! ⚡`);
+  const waNum = phone ? phone.replace(/[^0-9]/g, '') : '233500643544';
+  window.open(`https://wa.me/${waNum}?text=${msg}`, '_blank');
+  showToast('Fund link sent via WhatsApp!', 'success');
+}
+
+function generateClaimCode() {
+  const amount = parseFloat(document.getElementById('codeAmount').value);
+  const custom = document.getElementById('codeCustom').value.trim().toUpperCase();
+  if (!amount) { showToast('Enter amount', 'error'); return; }
+  const code = custom || 'BOOST' + Math.random().toString(36).substr(2, 6).toUpperCase();
+  const db = getDB();
+  if (!db.claimCodes) db.claimCodes = {};
+  db.claimCodes[code] = { amount, used: false, created: new Date().toISOString() };
+  setDB(db);
+  document.getElementById('generatedCode').innerHTML = `Code: <strong>${code}</strong> | ${amount} GHS`;
+  document.getElementById('codeAmount').value = '';
+  document.getElementById('codeCustom').value = '';
+  loadAdminData();
+  showToast(`Claim code ${code} created!`, 'success');
+}
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => showToast('Copied!', 'success'));
+}
+
+// ===== MODALS =====
+function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+// ===== FAQ =====
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ===== LEGAL =====
+const LEGAL_CONTENT = {
+  terms: `
+    <h2>Terms of Service</h2>
+    <p><strong>Last updated: January 2025</strong></p>
+    <p>By using Globle Booster ("the Service"), you agree to these Terms of Service. Please read them carefully.</p>
+    <h3>1. Service Description</h3>
+    <p>Globle Booster provides social media growth services including followers, likes, views, and engagement across various platforms. We operate in Ghana and accept payments via Mobile Money (MoMo) through Paystack.</p>
+    <h3>2. Account Responsibility</h3>
+    <p>You are responsible for maintaining the confidentiality of your account. We never ask for your social media passwords. You must ensure your account is public before ordering.</p>
+    <h3>3. Refill Policy</h3>
+    <p>We offer a 30-day refill guarantee on most services. Drops due to platform purges may not be eligible for refill.</p>
+    <h3>4. Prohibited Use</h3>
+    <p>You may not use our service for illegal activities, hate speech, or content that violates platform guidelines.</p>
+    <h3>5. Payment</h3>
+    <p>All payments are final once an order is placed and processing has begun. Refunds are subject to our Refund Policy.</p>
+  `,
+  privacy: `
+    <h2>Privacy Policy</h2>
+    <p><strong>Last updated: January 2025</strong></p>
+    <p>Your privacy is important to us. This policy explains how Globle Booster collects and uses your information.</p>
+    <h3>1. Information We Collect</h3>
+    <p>We collect your name, email, phone number, and payment information when you register and make purchases.</p>
+    <h3>2. How We Use Your Information</h3>
+    <p>We use your information to process orders, send notifications, and improve our services. We never sell your personal data to third parties.</p>
+    <h3>3. Data Security</h3>
+    <p>We use industry-standard encryption to protect your data. Payments are processed securely through Paystack.</p>
+    <h3>4. Cookies</h3>
+    <p>We use local storage to maintain your session and preferences on our website.</p>
+    <h3>5. Contact</h3>
+    <p>For privacy concerns, contact us at support@globlebooster.com or WhatsApp +233 500 643 544.</p>
+  `,
+  refund: `
+    <h2>Refund Policy</h2>
+    <p><strong>Last updated: January 2025</strong></p>
+    <h3>1. Order Cancellation</h3>
+    <p>Orders cannot be cancelled once they have started processing. Please ensure your link and details are correct before placing an order.</p>
+    <h3>2. Failed Deliveries</h3>
+    <p>If we are unable to deliver your order, funds will be automatically returned to your account balance within 24 hours.</p>
+    <h3>3. Partial Deliveries</h3>
+    <p>If only part of your order is delivered, we will refill the remainder or credit the proportional amount to your balance.</p>
+    <h3>4. Cash Refunds</h3>
+    <p>Cash refunds are processed within 3–5 business days upon written request to support@globlebooster.com. A processing fee of 5 GHS may apply.</p>
+    <h3>5. Non-Refundable Cases</h3>
+    <p>We do not offer refunds if: your account was private, you provided incorrect information, or the order was successfully delivered and drops occurred due to platform purges after the 30-day guarantee period.</p>
+    <h3>6. Contact</h3>
+    <p>For refund requests, WhatsApp: +233 500 643 544 or email: support@globlebooster.com</p>
+  `
+};
+
+function showLegal(type) {
+  document.getElementById('legalContent').innerHTML = LEGAL_CONTENT[type];
+  openModal('legalModal');
+}
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+}
+
+// ===== LIVE CHAT =====
+function openLiveChat() {
+  const msg = encodeURIComponent('Hello! I need help with Globle Booster. 👋');
+  window.open(`https://wa.me/233500643544?text=${msg}`, '_blank');
+}
+
+// ===== TOAST =====
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type}`;
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => t.classList.add('hidden'), 4000);
+}
+
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
+});
+
+</script>
+</body>
+</html>
