@@ -1089,7 +1089,7 @@ tr:hover td { background: var(--bg); }
 <div class="modal-overlay hidden" id="adminModal" onclick="closeModalOutside(event,'adminModal')">
   <div class="modal modal-lg" onclick="event.stopPropagation()">
     <div class="modal-header">
-      <div class="modal-title">⚙️ Admin Panel — Global Booster</div>
+      <div class="modal-title">⚙️ Admin Panel — Global Booster &nbsp;<span style="background:var(--primary);color:#fff;border-radius:50px;padding:2px 12px;font-size:13px;font-weight:700;letter-spacing:.5px">KD</span></div>
       <button class="modal-close" onclick="closeModal('adminModal')"><i class="fas fa-times"></i></button>
     </div>
     <div class="modal-body">
@@ -1099,6 +1099,7 @@ tr:hover td { background: var(--bg); }
         <div class="admin-tab" onclick="switchAdminTab('users', this)">Users</div>
         <div class="admin-tab" onclick="switchAdminTab('funds', this)">Fund Requests</div>
         <div class="admin-tab" onclick="switchAdminTab('codes', this)">Claim Codes</div>
+        <div class="admin-tab" onclick="switchAdminTab('activity', this)">🔔 Login Activity</div>
       </div>
 
       <!-- OVERVIEW TAB -->
@@ -1119,6 +1120,10 @@ tr:hover td { background: var(--bg); }
             <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:12px"><i class="fas fa-shopping-bag" style="color:var(--success)"></i> Recent Orders</div>
             <div id="adminRecentOrders"></div>
           </div>
+        </div>
+        <div class="card mt-2" style="background:var(--bg)">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:12px"><i class="fas fa-sign-in-alt" style="color:var(--accent)"></i> Recent Login Activity <span style="font-size:12px;color:var(--text-muted);font-weight:400">(latest 5)</span></div>
+          <div id="adminRecentActivity"></div>
         </div>
       </div>
 
@@ -1201,11 +1206,23 @@ tr:hover td { background: var(--bg); }
           </table>
         </div>
       </div>
+      <!-- LOGIN ACTIVITY TAB -->
+      <div id="adminTab-activity" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px">
+          <p style="color:var(--text-muted);font-size:14px;margin:0">All user sign-ins and registrations in real time.</p>
+          <button class="btn btn-sm btn-danger" onclick="clearLoginActivity()"><i class="fas fa-trash"></i> Clear Log</button>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead><tr><th>Time</th><th>Type</th><th>User ID</th><th>Name</th><th>Email</th></tr></thead>
+            <tbody id="loginActivityBody"></tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
-
-<!-- POLICY MODAL -->
 <div class="modal-overlay hidden" id="policyModal" onclick="closeModalOutside(event,'policyModal')">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-header">
@@ -1321,6 +1338,14 @@ function getCodes() { return JSON.parse(localStorage.getItem('gb_codes') || JSON
 function saveCodes(c) { localStorage.setItem('gb_codes', JSON.stringify(c)); }
 function getFundRequests() { return JSON.parse(localStorage.getItem('gb_funds') || '[]'); }
 function saveFundRequests(f) { localStorage.setItem('gb_funds', JSON.stringify(f)); }
+function getLoginActivity() { return JSON.parse(localStorage.getItem('gb_login_activity') || '[]'); }
+function saveLoginActivity(a) { localStorage.setItem('gb_login_activity', JSON.stringify(a)); }
+function logLoginActivity(type, user) {
+  const activity = getLoginActivity();
+  activity.unshift({ time: new Date().toLocaleString(), type, userId: user.id, name: user.name, email: user.email });
+  if (activity.length > 200) activity.length = 200; // cap at 200 entries
+  saveLoginActivity(activity);
+}
 function getCurrentUser() { const id = localStorage.getItem('gb_currentUser'); if (!id) return null; return getUsers().find(u => u.id === id) || null; }
 function setCurrentUser(u) { if (u) localStorage.setItem('gb_currentUser', u.id); else localStorage.removeItem('gb_currentUser'); }
 function updateUser(updated) { const users = getUsers(); const idx = users.findIndex(u => u.id === updated.id); if (idx > -1) { users[idx] = updated; saveUsers(users); } }
@@ -1365,6 +1390,7 @@ function registerUser() {
   users.push(newUser);
   saveUsers(users);
   setCurrentUser(newUser);
+  logLoginActivity('Register', newUser);
   closeModal('authModal');
   toast('Account created! Welcome to Global Booster 🚀', 'success');
   onUserLogin(newUser);
@@ -1378,6 +1404,7 @@ function loginUser() {
   const user = users.find(u => u.email === email && u.password === pass);
   if (!user) return toast('Invalid email or password', 'error');
   setCurrentUser(user);
+  logLoginActivity('Login', user);
   closeModal('authModal');
   toast('Welcome back, ' + user.name.split(' ')[0] + '! 👋', 'success');
   onUserLogin(user);
@@ -1881,6 +1908,23 @@ function loadAdmin() {
       </div>
     `).join('') : '<p style="color:var(--text-muted);font-size:13px">No orders yet</p>';
   }
+  // Recent login activity
+  const recentActivityEl = document.getElementById('adminRecentActivity');
+  if (recentActivityEl) {
+    const activity = getLoginActivity().slice(0, 5);
+    recentActivityEl.innerHTML = activity.length ? activity.map(a => `
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="badge ${a.type === 'Login' ? 'badge-primary' : 'badge-success'}" style="width:72px;text-align:center">${a.type === 'Login' ? '🔑 Login' : '🆕 Signup'}</span>
+          <div>
+            <div style="font-weight:700;font-size:14px">${a.name}</div>
+            <div style="font-size:12px;color:var(--text-muted)">${a.email} · ${a.userId}</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);text-align:right">${a.time}</div>
+      </div>
+    `).join('') : '<p style="color:var(--text-muted);font-size:13px">No activity yet</p>';
+  }
 }
 
 function switchAdminTab(tab, el) {
@@ -1893,6 +1937,7 @@ function switchAdminTab(tab, el) {
   if (tab === 'users') loadAdminUsers();
   if (tab === 'funds') loadAdminFunds();
   if (tab === 'codes') loadAdminCodes();
+  if (tab === 'activity') loadLoginActivity();
 }
 
 function loadAdminOrders() {
@@ -2075,6 +2120,31 @@ function copyFundLink() {
   if (generatedFundLinkData) {
     navigator.clipboard.writeText(generatedFundLinkData).then(() => toast('Link copied!', 'success'));
   }
+}
+
+function loadLoginActivity() {
+  const activity = getLoginActivity();
+  const tbody = document.getElementById('loginActivityBody');
+  if (!activity.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:32px">No login activity yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = activity.map(a => `
+    <tr>
+      <td style="font-size:13px;color:var(--text-muted)">${a.time}</td>
+      <td><span class="badge ${a.type === 'Login' ? 'badge-primary' : 'badge-success'}">${a.type === 'Login' ? '🔑 Sign In' : '🆕 Register'}</span></td>
+      <td style="font-family:'Outfit',sans-serif;font-weight:700;color:var(--primary)">${a.userId}</td>
+      <td style="font-weight:600">${a.name}</td>
+      <td style="color:var(--text-muted);font-size:13px">${a.email}</td>
+    </tr>
+  `).join('');
+}
+
+function clearLoginActivity() {
+  if (!confirm('Clear all login activity logs?')) return;
+  saveLoginActivity([]);
+  loadLoginActivity();
+  toast('Login activity cleared', 'info');
 }
 
 function loadAdminCodes() {
